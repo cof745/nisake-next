@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Name the Yokai (working title) — NISAKE GAME</title>
+<meta name="description" content="Solve the ghost story to banish it! Find the yokai's true name hidden in its tale, and it leaves. No deaths, no retries — one 15-minute night at a time.">
+<meta name="robots" content="noindex">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HG4N235W49"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-HG4N235W49', { mihon: '1' });
+gtag('event', 'lp_view', { mihon: '1' });
+</script>
+<style>
+:root { --bg: #f6f2ea; --ink: #2a2521; --sub: #6b635a; --line: #d9d1c4; --pc: #2f4a6b; --phone: #7a4b2f; --card: #fffdf8; }
+@media (prefers-color-scheme: dark) { :root { --bg: #1d1a17; --ink: #efe9df; --sub: #b3aa9d; --line: #3a342e; --pc: #6f93c0; --phone: #c98f68; --card: #262220; } }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 20px 16px 48px; }
+.tag { display: inline-block; font-size: 13px; color: var(--sub); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+h1 { font-size: 26px; line-height: 1.25; margin: 14px 0 6px; }
+.name { color: var(--sub); margin: 0 0 14px; font-size: 14px; }
+img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); display: block; }
+p.body { font-size: 17px; margin: 16px 0 6px; }
+.ja { color: var(--sub); font-size: 14px; margin: 0 0 22px; }
+.q { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0 0 22px; font-size: 15px; }
+.btns { display: grid; gap: 12px; }
+button { font: inherit; font-size: 17px; font-weight: 600; padding: 14px 16px; border-radius: 10px; border: 0; cursor: pointer; color: #fff; width: 100%; }
+#pc { background: var(--pc); }
+#phone { background: var(--phone); }
+.small { color: var(--sub); font-size: 13px; margin: 6px 2px 0; }
+#thanks { display: none; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 12px; }
+footer { margin-top: 36px; color: var(--sub); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
+footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+<span class="tag">In development — not playable yet / 開発中の見本・まだ遊べません</span>
+<h1>Solve the ghost story to banish it!</h1>
+<p class="name">Name the Yokai (working title) · 名当ての夜（仮）</p>
+<img src="mihon1.png" width="1200" height="628" alt="Name the Yokai — concept image">
+<p class="body">Find the yokai's true name hidden in its tale, and it leaves. No deaths, no retries — one 15-minute night at a time.</p>
+<p class="ja">【怖い話を、推理で祓える！】話の中に隠れた本当の名を見つければ、あやかしは帰る。死に戻りなし、一晩15分の和の怪談。</p>
+<div class="q">A question for you: What would make a horror game scary even if you could never die?<br><span class="small">Tell us in the comments on Reddit.</span></div>
+<div class="btns">
+<div>
+<button id="pc" type="button">Tell me when it's on PC (Steam)</button>
+<p class="small">Opens our Steam creator page. Follow it to get notified when a new game is released.</p>
+</div>
+<div>
+<button id="phone" type="button">I'd rather play on my phone</button>
+<div id="thanks">Thanks — noted! We count every tap to decide what to make and where. / ありがとう、数えました。</div>
+</div>
+</div>
+<footer>
+NISAKE GAME · This page uses Google Analytics to count visits and button taps (no sign-in, no names; Google may collect device and approximate location data — <a href="https://policies.google.com/technologies/partner-sites">how Google uses it</a>).
+</footer>
+</main>
+<script>
+function send(name, cb) {
+  var done = false; function go(){ if (!done) { done = true; if (cb) cb(); } }
+  try { gtag('event', name, { mihon: '1', transport_type: 'beacon', event_callback: go }); } catch (e) {}
+  setTimeout(go, 700);
+}
+document.getElementById('pc').addEventListener('click', function () {
+  send('btn_pc', function () { location.href = 'https://store.steampowered.com/developer/nisake'; });
+});
+document.getElementById('phone').addEventListener('click', function () {
+  send('btn_phone');
+  document.getElementById('thanks').style.display = 'block';
+  this.disabled = true; this.style.opacity = '0.7';
+});
+</script>
+</body>
+</html>

@@ -33,6 +33,9 @@ button { font: inherit; font-size: 17px; font-weight: 600; padding: 14px 16px; b
 #phone { background: var(--phone); }
 .small { color: var(--sub); font-size: 13px; margin: 6px 2px 0; }
 #thanks { display: none; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-top: 12px; }
+.ask { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 18px; }
+.ask h2 { font-size: 19px; margin: 0 0 6px; }
+.ask iframe { border: 1px solid var(--line); border-radius: 10px; background: #fff; margin-top: 8px; }
 footer { margin-top: 36px; color: var(--sub); font-size: 13px; border-top: 1px solid var(--line); padding-top: 14px; }
 footer a { color: inherit; }
 </style>
@@ -45,7 +48,6 @@ footer a { color: inherit; }
 <img src="mihon2.png" width="1200" height="628" alt="Shotengai Case Notes — concept image">
 <p class="body">15-minute mysteries on a Japanese shopping street. Every clue is in what people say.</p>
 <p class="ja">【自分で解ける！】1話15分、手がかりは全部セリフの中。商店街の小さな事件帖。</p>
-<div class="q">A question for you: Would 15-minute mystery cases feel satisfying to you, or too short?<br><span class="small">Tell us in the comments on Reddit.</span></div>
 <div class="btns">
 <div>
 <button id="pc" type="button">Tell me when it's on PC (Steam)</button>
@@ -56,6 +58,13 @@ footer a { color: inherit; }
 <div id="thanks">Thanks — noted! We count every tap to decide what to make and where. / ありがとう、数えました。</div>
 </div>
 </div>
+<section class="ask">
+<h2>One question for you</h2>
+<p class="q">Would 15-minute mystery cases feel satisfying to you, or too short?</p>
+<p class="small">Answer right here — no sign-in, a few words is plenty. (Or tell us in the Reddit comments.) / ひとことでも答えてもらえたらうれしいです。</p>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZARBQbk0ntPORGw72mTbTWxG8Egau-2hRDTHHPRoa27T1MQ/viewform?embedded=true" title="Answer form" loading="lazy" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<p class="small"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdZARBQbk0ntPORGw72mTbTWxG8Egau-2hRDTHHPRoa27T1MQ/viewform" target="_blank" rel="noopener" id="formlink">Open the form in a new tab</a></p>
+</section>
 <footer>
 NISAKE GAME · This page uses Google Analytics to count visits and button taps (no sign-in, no names; Google may collect device and approximate location data — <a href="https://policies.google.com/technologies/partner-sites">how Google uses it</a>).
 </footer>
@@ -69,6 +78,7 @@ function send(name, cb) {
 document.getElementById('pc').addEventListener('click', function () {
   send('btn_pc', function () { location.href = 'https://store.steampowered.com/developer/nisake'; });
 });
+document.getElementById('formlink').addEventListener('click', function () { send('form_open'); });
 document.getElementById('phone').addEventListener('click', function () {
   send('btn_phone');
   document.getElementById('thanks').style.display = 'block';
